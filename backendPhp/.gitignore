@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 .env
+.env.example
 .env.backup
 .phpunit.result.cache
 Homestead.json
@@ -12,3 +13,8 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+composer.json
+composer.yml
+package.json
+docker-composer.yml
+webpack.mix.js
