@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class City {\n  constructor(c_id, p_id, city) {\n    this.c_id = c_id;\n    this.p_id = p_id;\n    this.city = city;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

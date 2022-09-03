@@ -1,0 +1,117 @@
+<br><br><br>
+<!-- Tabs navs -->
+
+<div class="container ">
+  <div class="row justify-content-center">
+    <div class="col-11">
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="parsal-tab" data-bs-toggle="tab" href="#parsal" role="tab"
+            aria-controls="parsal" aria-selected="true">For Parsal</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="letter-tab" data-bs-toggle="tab" href="#letter" role="tab" aria-controls="letter"
+            aria-selected="false">For Letter / Document</a>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="myTabContent">
+        <!-- ========================   parsal  =============================================   -->
+
+            <div class="tab-pane fade show active" id="parsal" role="tabpanel" aria-labelledby="home-tab">
+              <div class="getRates-form">
+                <h4>Canada Post Cheap rates...</h4>
+              <form [formGroup]="getRatesApiForm" (ngSubmit)="onSubmitApi()" >
+              <div class="row ">
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Original Postal Code</span>
+                    <input type="text" class="form-control" placeholder="From" aria-label="Username"
+                      aria-describedby="basic-addon1" name="r_from"
+                      formControlName="r_from">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Destination Postal Code</span>
+                    <input type="text" class="form-control" placeholder="To" aria-label="Username"
+                      aria-describedby="basic-addon1" name="r_to"
+                      formControlName="r_to">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Length</span>
+                    <input type="text" class="form-control" placeholder="Enter Length" aria-label="Username"
+                      aria-describedby="basic-addon1" name="r_lenght"
+                      formControlName="r_lenght">
+                    <span class="input-group-text" id="basic-addon1">cm</span>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Width</span>
+                    <input type="text" class="form-control" placeholder="Enter Width" aria-label="Username"
+                      aria-describedby="basic-addon1" name="r_width"
+                      formControlName="r_width">
+                    <span class="input-group-text" id="basic-addon1">cm</span>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Height</span>
+                    <input type="text" class="form-control" placeholder="Enter Height" aria-label="Username"
+                      aria-describedby="basic-addon1" name="r_height"
+                      formControlName="r_height">
+                    <span class="input-group-text" id="basic-addon1">cm</span>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Weight</span>
+                    <input type="text" class="form-control" placeholder="Enter Weight" aria-label="Username"
+                      aria-describedby="basic-addon1" name="r_weight"
+                      formControlName="r_weight">
+                    <span class="input-group-text" id="basic-addon1">kg</span>
+                  </div>
+                </div>
+                <div class="col-6 align-self-end">
+                  <input type="submit" class="btn btn-primary" name="GetRates" value="Calculate Rates"/>
+
+                </div>
+              </div>
+            </form>
+          </div>
+            </div>
+
+
+
+
+
+        <!-- ========================   letter =============================================   -->
+        <div class="tab-pane fade" id="letter" role="tabpanel" aria-labelledby="profile-tab">
+          <p>Currently unavailable...</p>
+
+        </div>
+      </div>
+  <div class="alert alert-secondary" *ngIf="isLoading">{{message ? message :'Loading...'}}</div>
+      <table class="table table-hover table-bordered" *ngIf="data">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Service Name</th>
+              <th scope="col">Expected Delivery</th>
+              <th scope="col">Price $</th>
+              <th scope="col">Add tp Cart</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let dataArray of data | keyvalue; index as i">
+            <tr>
+              <th scope="row">{{ i+1 }}</th>
+              <td>{{ dataArray.key }}</td>
+              <td>{{ dataArray.value[1] }}</td>
+              <td>{{ dataArray.value[0] }}</td>
+
+              <td> <button type="button" class="btn btn-secondary">Add to Cart</button> </td>
+            </tr>
+
+          </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

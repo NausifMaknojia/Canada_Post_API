@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Province {\n  constructor(p_id, province) {\n    this.p_id = p_id;\n    this.province = province;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
